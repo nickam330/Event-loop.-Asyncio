@@ -1,6 +1,4 @@
 import asyncio
-from importlib.metadata import pass_none
-
 import requests
 from itertools import batched
 import aiohttp
@@ -26,10 +24,8 @@ async def get_people(person_id: int, session: aiohttp.ClientSession):
         json_data.pop('created')
         json_data.pop('edited')
         json_data.pop('url')
-        print(json_data)
         return json_data
     return None
-    # print(json_data)
 
 
 async def insert_people_batch(people_list: list[dict]):
